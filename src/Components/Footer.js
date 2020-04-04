@@ -4,7 +4,7 @@ import todoStore from "../Stores/TodoStore";
 
 class Footer extends Component {
   ActiveTask = () => {
-    // todoStore.changeWhatShows("Active");
+    todoStore.changeWhatShows("Active");
   };
   AllTask = () =>{
     todoStore.changeWhatShows("All")  

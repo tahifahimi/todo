@@ -24,12 +24,14 @@ class TodoItems extends Component {
 
   render() {
     let result;
-    if (todoStore.status === "All") {
-      // console.log("all are drawing");
-      result = todoStore.todos;
-      // todoStore.todos.map((t) => {
-      //   return <TodoItem todo={t} />;
-      // });
+    if (todoStore.status === "Active") {
+      let arr = [];
+      for (let i in todoStore.todos) {
+        if (!todoStore.todos[i].completed) {
+          arr.push(todoStore.todos[i]);
+        }
+      }
+      result = arr;
     } else if (todoStore.status === "Completed") {
       let arr = [];
       for (let i in todoStore.todos) {
@@ -38,9 +40,8 @@ class TodoItems extends Component {
         }
       }
       result = arr;
-      // todoStore.completed.map((todo) => {
-      //   return <TodoItem todo={todo} />;
-      // });
+    }else{
+      result = todoStore.todos;
     }
     return (
       <section className="main">
