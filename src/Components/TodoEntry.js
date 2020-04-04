@@ -1,20 +1,25 @@
 import React, { Component } from "react";
+import TodoStore from '../Stores/TodoStore';
 
 class TodoEntry extends Component {
   constructor(props) {
     super(props);
-    this.state = { value: "enter the new task" };
-    // this.createNewTodo = this.createNewTodo.bind(this);
+    this.state = { value: '' };
+    this.handleEnter = this.handleEnter.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
-  // createNewTodo(event) {
-  //   this.setState({ value: event.target.value });
-  // }
+
+  handleChange(event) {
+    this.setState({ value: event.target.value });
+  }
 
   handleEnter(event) {
-    //check the enterd keyboard
     if (event.key === "Enter") {
-      console.log(event.key);
-      // create new todo here
+      console.log(this.state.value);
+      // create a new task and clean the state
+      TodoStore.addTodo(this.state.value);
+      
+      this.setState({ value: '' });
     }
     return;
   }
@@ -26,8 +31,10 @@ class TodoEntry extends Component {
         <input
           type="text"
           className="new-todo"
-          placeholder={this.state.value}
+          value={this.state.value}
+          placeholder="enter your task"
           onKeyDown={this.handleEnter}
+          onChange={this.handleChange}
         />
       </header>
     );
