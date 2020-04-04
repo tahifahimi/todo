@@ -4,7 +4,7 @@ body {
 	padding: 0;
 }
 
-/* button {
+button {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -18,7 +18,7 @@ body {
 	appearance: none;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-} */
+}
 
 body {
 	font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -232,13 +232,13 @@ body {
 	height: 40px;
 	margin: auto 0;
 	font-size: 30px;
-	color: #cc9a9a;
+	color: #332aaf;
 	margin-bottom: 11px;
 	transition: color 0.2s ease-out;
 }
 
 .todo-list li .destroy:hover {
-	color: #af5b5e;
+	color: #ec540d;
 }
 
 .todo-list li .destroy:after {
@@ -257,7 +257,11 @@ body {
 	margin-bottom: -1px;
 }
 
+
+
+
 .footer {
+	
 	padding: 10px 15px;
 	height: 20px;
 	text-align: center;
@@ -266,6 +270,7 @@ body {
 }
 
 .footer:before {
+	
 	content: '';
 	position: absolute;
 	right: 0;
@@ -321,6 +326,7 @@ body {
 
 .clear-completed,
 html .clear-completed:active {
+	
 	float: right;
 	position: relative;
 	line-height: 20px;
@@ -378,3 +384,9 @@ html .clear-completed:active {
 		bottom: 10px;
 	}
 }
+
+/* my css */
+/* .taskRemove{
+	background-image: url("./image/remove.png");
+	
+} */

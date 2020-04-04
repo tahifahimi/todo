@@ -13,13 +13,13 @@ class TodoItems extends Component {
           {todoStore.todos.map((todo) => {
             return <TodoItem todo={todo} />;
           })}
-          <li>
+          {/* <li>
             <div className="view">
               <input type="checkbox" className="toggle" />
               <label>new work</label>
               <button className="destry" />
             </div>
-          </li>
+          </li> */}
           {/* <TodoItem/> */}
         </ul>
         <Footer/>

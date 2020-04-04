@@ -9,6 +9,12 @@ class TodoItems extends Component {
     console.log(todo.completed);
     todoStore.toggle(todo);
   };
+
+  removeTask = () => {
+    const { todo } = this.props;
+    todoStore.remove(todo);
+  };
+
   render() {
     const { todo } = this.props;
     return (
@@ -21,7 +27,7 @@ class TodoItems extends Component {
             onClick={this.toggleCheckBox}
           />
           <label>{todo.title}</label>
-          <button className="destry" />
+          <button className="destroy" onClick={this.removeTask} />
         </div>
       </li>
     );

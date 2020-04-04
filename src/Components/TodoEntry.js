@@ -17,8 +17,7 @@ class TodoEntry extends Component {
     if (event.key === "Enter") {
       console.log(this.state.value);
       // create a new task and clean the state
-      TodoStore.addTodo(this.state.value);
-      
+      TodoStore.addTodo(this.state.value);   
       this.setState({ value: '' });
     }
     return;
