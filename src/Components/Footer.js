@@ -1,17 +1,19 @@
 import React, { Component } from "react";
 import todoStore from "../Stores/TodoStore";
 
-
 class Footer extends Component {
   ActiveTask = () => {
     todoStore.changeWhatShows("Active");
   };
-  AllTask = () =>{
-    todoStore.changeWhatShows("All")  
-  }
+  AllTask = () => {
+    todoStore.changeWhatShows("All");
+  };
 
   CompletedTask = () => {
-    todoStore.changeWhatShows("Completed")
+    todoStore.changeWhatShows("Completed");
+  };
+  clearAll = () => {
+    todoStore.removeAllTasks();
   };
 
   render() {
@@ -41,7 +43,9 @@ class Footer extends Component {
             </li>
           </ul>
           {/* <!-- Hidden if no completed items are left ↓ --> */}
-          <button class="clear-completed">Clear completed</button>
+          <button class="clear-completed" onClick={this.clearAll}>
+            Clear completed
+          </button>
         </footer>
       </div>
     );

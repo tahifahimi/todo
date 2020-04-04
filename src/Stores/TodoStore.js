@@ -10,13 +10,13 @@ class TodoStore {
     },
   ];
 
-  @observable completed = [
-    {
-      title: "co",
-      id: 66,
-      completed: true,
-    },
-  ];
+  // @observable completed = [
+  //   {
+  //     title: "co",
+  //     id: 66,
+  //     completed: true,
+  //   },
+  // ];
 
   @observable status = "All";
 
@@ -46,6 +46,11 @@ class TodoStore {
   @action
   changeWhatShows(title) {
     this.status = title;
+  }
+
+  @action
+  removeAllTasks() {
+    this.todos = [];
   }
 }
 const store = new TodoStore();
