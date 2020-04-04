@@ -4,6 +4,7 @@ import todoStore from "../Stores/TodoStore";
 
 @observer
 class TodoItems extends Component {
+  
   toggleCheckBox = () => {
     const { todo } = this.props;
     console.log(todo.completed);

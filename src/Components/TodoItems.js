@@ -6,13 +6,56 @@ import Footer from "./Footer";
 
 @observer
 class TodoItems extends Component {
+  // @observer
+  ShowItems = () => {
+    console.log(todoStore.status);
+
+    if (todoStore.status === "All") {
+      // console.log("all are drawing");
+      todoStore.todos.map((t) => {
+        return <TodoItem todo={t} />;
+      });
+    } else if (todoStore.status === "Completed") {
+      todoStore.completed.map((todo) => {
+        return <TodoItem todo={todo} />;
+      });
+    }
+  };
+
   render() {
+    let result;
+    if (todoStore.status === "All") {
+      // console.log("all are drawing");
+      result = todoStore.todos;
+      // todoStore.todos.map((t) => {
+      //   return <TodoItem todo={t} />;
+      // });
+    } else if (todoStore.status === "Completed") {
+      let arr = [];
+      for (let i in todoStore.todos) {
+        if (todoStore.todos[i].completed) {
+          arr.push(todoStore.todos[i]);
+        }
+      }
+      result = arr;
+      // todoStore.completed.map((todo) => {
+      //   return <TodoItem todo={todo} />;
+      // });
+    }
     return (
       <section className="main">
         <ul className="todo-list">
-          {todoStore.todos.map((todo) => {
+          {/* {ShowItems} */}
+
+          {/* {todoStore.todos.map((t) => {
+          return <TodoItem todo={t} />;
+          })
+          } */}
+
+          {result.map((todo) => {
             return <TodoItem todo={todo} />;
           })}
+
           {/* <li>
             <div className="view">
               <input type="checkbox" className="toggle" />
@@ -22,7 +65,7 @@ class TodoItems extends Component {
           </li> */}
           {/* <TodoItem/> */}
         </ul>
-        <Footer/>
+        <Footer />
       </section>
     );
   }
