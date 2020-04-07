@@ -15,19 +15,22 @@ class TodoItems extends Component {
     const { todo } = this.props;
     todoStore.remove(todo);
   };
-
+  
   render() {
     const { todo } = this.props;
     return (
-      <li className={todo.completed ? "completed" : "destroy"}>
+      <li className={todo.completed ? "completed" : ""}>
         <div className="view">
+          {todo.completed}
           <input
             type="checkbox"
             className="toggle"
-            value={todo.completed}
+            value={!todo.completed}
             onClick={this.toggleCheckBox}
+            // onClick={this.}
+
           />
-          <label>{todo.title}</label>
+          <label com={todo.completed}>{todo.title }</label>
           <button className="destroy" onClick={this.removeTask} />
         </div>
       </li>

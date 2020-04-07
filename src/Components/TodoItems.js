@@ -6,22 +6,6 @@ import Footer from "./Footer";
 
 @observer
 class TodoItems extends Component {
-  // @observer
-  ShowItems = () => {
-    console.log(todoStore.status);
-
-    if (todoStore.status === "All") {
-      // console.log("all are drawing");
-      todoStore.todos.map((t) => {
-        return <TodoItem todo={t} />;
-      });
-    } else if (todoStore.status === "Completed") {
-      todoStore.completed.map((todo) => {
-        return <TodoItem todo={todo} />;
-      });
-    }
-  };
-
   render() {
     let result;
     if (todoStore.status === "Active") {
@@ -46,13 +30,7 @@ class TodoItems extends Component {
     return (
       <section className="main">
         <ul className="todo-list">
-          {/* {ShowItems} */}
-
-          {/* {todoStore.todos.map((t) => {
-          return <TodoItem todo={t} />;
-          })
-          } */}
-
+          
           {result.map((todo) => {
             return <TodoItem todo={todo} />;
           })}

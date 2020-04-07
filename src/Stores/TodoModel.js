@@ -12,9 +12,9 @@ class TodoModel{
         this.id = id
         this.store = store 
     }
-    @action
-    toggle(){
-        this.completed = !this.completed
-    }
+    // @action
+    // toggle(){
+    //     this.completed = !this.completed
+    // }
 }
 export default TodoModel

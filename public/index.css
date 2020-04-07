@@ -43,7 +43,12 @@ body {
 
 .todoapp {
 	background: #fff;
-	margin: 130px 0 40px 0;
+	/* margin: 130px 0 40px 0; */
+	/* margin: 100px 0 40px 130px; */
+	margin-top: 130px;
+	margin-left: 100px;
+	
+	
 	position: relative;
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
 	            0 25px 50px 0 rgba(0, 0, 0, 0.1);
@@ -321,7 +326,7 @@ body {
 }
 
 .filters li a.selected {
-	border-color: rgba(175, 47, 47, 0.2);
+	/* border-color: rgba(175, 47, 47, 0.2); */
 }
 
 .clear-completed,
