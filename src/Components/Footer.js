@@ -17,14 +17,23 @@ class Footer extends Component {
   clearAll = () => {
     todoStore.removeCompletedTasks();
   };
+  RemainTasks = () => {
+    todoStore.numberOfRemainTasks();
+    // let numberOfTask = 0;
+    // for (let i in todoStore.todos) {
+    //   if (!todoStore.todos[i].completed) {
+    //     numberOfTask++;
+    //   }
+    // }
+    // return numberOfTask;
+  };
 
   render() {
-    // show the number of tasks in each group
     return (
       <div>
         <footer class="footer">
           <span class="todo-count">
-            <strong>{todoStore.number}</strong> item left
+            <strong>{todoStore.numberOfTask}</strong> item left
           </span>
           <ul class="filters">
             <li>

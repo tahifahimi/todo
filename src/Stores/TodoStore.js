@@ -11,12 +11,18 @@ class TodoStore {
   @action
   addTodo(title) {
     this.todos.push(new TodoModel(this, title, false, this.lastId++));
+    this.numberOfTask++;
   }
 
   @action
-  toggle(toggletodo) {
+  toggle(passid) {
     for (let i in this.todos) {
-      if (this.todos[i].id === toggletodo.id) {
+      if (this.todos[i].id === passid) {
+        if(this.todos[i].completed){
+          this.numberOfTask++;
+        }else{
+          this.numberOfTask--;
+        }
         this.todos[i].completed = !this.todos[i].completed;
         console.log("toggle the todo");
       }
@@ -24,9 +30,10 @@ class TodoStore {
   }
 
   @action
-  remove(todo) {
-    var filtered = this.todos.filter((t) => t.id !== todo.id);
+  remove(passid) {
+    var filtered = this.todos.filter((t) => t.id !== passid);
     this.todos.replace(filtered);
+    this.numberOfTask = this.numberOfRemainTasks()
   }
 
   @action
@@ -45,44 +52,14 @@ class TodoStore {
   }
 
   @action
-  passNumberOfActiveTask() {
-    let number = 0;
+  numberOfRemainTasks() {
+    let temp=0;
     for (let i in this.todos) {
       if (!this.todos[i].completed) {
-        number++;
+        temp++;
       }
     }
-    return number;
-  }
-
-  @action
-  passNumberOfCompleteTask() {
-    let number = 0;
-    for (let i in this.todos) {
-      if (this.todos[i].completed) {
-        number++;
-      }
-    }
-    return number;
-  }
-
-  @action
-  number() {
-    if (this.status === "All") {
-      this.numberOfTask = this.todos.length;
-    } else if (this.status === "Active") {
-      for (let i in this.todos) {
-        if (!this.todos[i].completed) {
-          this.numberOfTask++;
-        }
-      }
-    } else {
-      for (let i in this.todos) {
-        if (this.todos[i].completed) {
-          this.numberOfTask++;
-        }
-      }
-    }
+    return temp;
   }
 }
 const store = new TodoStore();

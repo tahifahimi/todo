@@ -7,26 +7,24 @@ import Footer from "./Footer";
 @observer
 class TodoItems extends Component {
   render() {
-    let result;
+    let result = [];
     if (todoStore.status === "Active") {
-      let arr = [];
       for (let i in todoStore.todos) {
         if (!todoStore.todos[i].completed) {
-          arr.push(todoStore.todos[i]);
+          result.push(todoStore.todos[i]);
         }
       }
-      result = arr;
     } else if (todoStore.status === "Completed") {
-      let arr = [];
       for (let i in todoStore.todos) {
         if (todoStore.todos[i].completed) {
-          arr.push(todoStore.todos[i]);
+          result.push(todoStore.todos[i]);
         }
       }
-      result = arr;
     }else{
       result = todoStore.todos;
     }
+
+
     return (
       <section className="main">
         <ul className="todo-list">

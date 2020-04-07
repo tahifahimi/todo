@@ -7,13 +7,12 @@ class TodoItems extends Component {
   
   toggleCheckBox = () => {
     const { todo } = this.props;
-    console.log(todo.completed);
-    todoStore.toggle(todo);
+    todoStore.toggle(todo.id);
   };
 
   removeTask = () => {
     const { todo } = this.props;
-    todoStore.remove(todo);
+    todoStore.remove(todo.id);
   };
   
   render() {
@@ -21,16 +20,15 @@ class TodoItems extends Component {
     return (
       <li className={todo.completed ? "completed" : ""}>
         <div className="view">
-          {todo.completed}
           <input
             type="checkbox"
             className="toggle"
             value={!todo.completed}
             onClick={this.toggleCheckBox}
             // onClick={this.}
-
           />
-          <label com={todo.completed}>{todo.title }</label>
+          
+          <label>{todo.title }</label>
           <button className="destroy" onClick={this.removeTask} />
         </div>
       </li>
